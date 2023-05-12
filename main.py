@@ -9,8 +9,10 @@ class Game(Base):
         self.board = Board()
 
     def update(self):
-        #print(pygame.time.get_ticks() // 1000)
-        self.board.update(self.input.left_button_was_clicked)
+        dt = self.clock.get_time() / 1000
+        #self.input.update(self.board, dt)
+        #print(f"MOTION: {self.input.mouse_motion}\tLEFT_BUTTON: {self.input.left_button}")
+        self.board.update(self.input, dt)
 
     def render(self):
         self.screen.fill((0, 0, 0))
